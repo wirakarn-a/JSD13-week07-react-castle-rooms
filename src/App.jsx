@@ -5,7 +5,7 @@ export default function App() {
 
   // declare a state variable
   const [question, setQuestion] =useState("");
-  const [answer, setAnswer] = useState("How are you?");
+  const [answer, setAnswer] = useState("");
 
   const handleQuestion = (e) => {
     console.log(e)
@@ -31,6 +31,14 @@ export default function App() {
         className="bg-white text-black rounded px-2 py-1"
         placeholder="Type your message here..."
       />
+      
+      <p className="text-green-300">
+        Reply from the Secret Room {" "}
+        <span className="text-yellow-300">
+          {answer ?  ` ✅️ ${answer}` : "⌛ Waiting for a message..." }
+        </span>
+      </p>
+
       <Castle question={question} answer={answer} handleAnswer={handleAnswer}/>
     </div>
   );
