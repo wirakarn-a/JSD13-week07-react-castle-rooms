@@ -1,5 +1,10 @@
-export default function SecretRoom({question, answer, handleAnswer, handleQuestion}) {
-    console.log(question, answer, handleAnswer);
+import { useContext } from "react";
+import { MessageContext } from "../context/messageContext/MessageContext";
+
+export default function SecretRoom() {
+  console.log(MessageContext);
+  const { question, answer, handleAnswer } = useContext(MessageContext)
+
   return (
     <div className="flex flex-col justify-center items-center pt-10 pb-6 bg-gray-800 w-[90%]">
       <h1>SecretRoom</h1>

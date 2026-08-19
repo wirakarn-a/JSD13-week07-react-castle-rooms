@@ -1,28 +1,19 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Castle from "./components/01_Castle";
+
+import { MessageContext } from "./context/messageContext/MessageContext";
 
 export default function App() {
 
-  // declare a state variable
-  const [question, setQuestion] =useState("");
-  const [answer, setAnswer] = useState("");
-
-  const handleQuestion = (e) => {
-    console.log(e)
-    setQuestion(e.target.value)
-  }
-
-  const handleAnswer = (e) => {
-    console.log(e)
-    setAnswer(e.target.value)
-  }
+  const {question, answer, handleQuestion } = useContext(MessageContext);
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gray-800 text-white pb-80 py-10">
       <p className="text-purple-300">
         Message for Secret Room:{" "}
         <span className="text-yellow-300">
-          {question ? ` ✅️ ${question}` : "⌛ Waiting for a message..."}</span>
+          {question ? ` ✅️ ${question}` : "⌛ Waiting for a message..."}
+        </span>
       </p>
 
       <textarea 
@@ -39,7 +30,7 @@ export default function App() {
         </span>
       </p>
 
-      <Castle question={question} answer={answer} handleAnswer={handleAnswer}/>
+      <Castle />
     </div>
   );
 }
