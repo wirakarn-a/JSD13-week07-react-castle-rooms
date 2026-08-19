@@ -1,10 +1,15 @@
 import Nook from "./08_Nook";
 
-export default function Gallery({question, answer, handleAnswer}) {
-return (
-    <div className="flex flex-col justify-center items-center pt-10 bg-indigo-500 w-[90%]">
-        <h1 >Gallery</h1>
-        <Nook question={question} answer={answer} handleAnswer={handleAnswer}/>
+export default function Gallery(props) {
+  return (
+    <div className="flex flex-col items-center pt-2 pb-6 bg-blue-600 w-[90%] flex-1">
+      <h1 className="text-white text-sm font-medium my-2">Gallery</h1>
+      <Nook
+        question={props.question}
+        answer={props.answer}
+        setAnswer={props.setAnswer}
+        isEscapePodBuilt={props.isEscapePodBuilt}
+      />
     </div>
-);
+  );
 }
